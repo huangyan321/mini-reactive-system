@@ -1,0 +1,46 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ count }}</h1>
+    </div>
+    <button id="addBtn">add</button>
+    <button id="subBtn">sub</button>
+    <script src="minivue.js"></script>
+    <script>
+      const app = new MiniVue({
+        el: '#app',
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          add() {
+            this.count++;
+          },
+          sub() {
+            this.count--;
+          },
+        },
+      });
+      console.log(app);
+      const addBtn = document.getElementById('addBtn');
+      const subBtn = document.getElementById('subBtn');
+      addBtn.onclick = () => {
+        app.add();
+      };
+      subBtn.onclick = () => {
+        app.sub();
+      };
+    </script>
+  </body>
+</html>
